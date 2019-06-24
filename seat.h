@@ -19,7 +19,7 @@ using std::to_string;
 // ---------------------------------------------
 class NoPrice : public exception {
 
-    const char *what() const noexcept override;
+    const char* what() const noexcept override;
 };
 
 // ---------------------------------------------
