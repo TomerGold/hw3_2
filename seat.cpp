@@ -1,20 +1,14 @@
 #include "seat.h"
 
 //this function is used for throwing an error if there is no price for a seat
-const char* NoPrice::what() const noexcept {
-    return ("Not For Sale !"); //TODO is this the way?
+const char* NoPrice::what() const noexcept { //TODO noexcept?
+    return ("Not For Sale !");
 }
 
-///Start of Seat class methods:
+///Seat constructor
 
 Seat::Seat(int row, int chair_number, int base_price) :
         row(row), chair_number(chair_number), base_price(base_price) {}
-
-Seat::Seat(int row, int chair_number) :
-        row(row), chair_number(chair_number) {}
-
-
-///End of Seat class methods:
 
 ///MainHallSeat constructor
 MainHallSeat::MainHallSeat(int row, int chair_number, int base_price) :
@@ -138,9 +132,6 @@ const int GoldenCircleSeat::price() const {
 
 DisablePodiumSeat::DisablePodiumSeat(int row, int chair_number, int base_price)
         : SpecialSeat(row, chair_number, base_price) {}
-
-DisablePodiumSeat::DisablePodiumSeat(int row, int chair_number)
-        : SpecialSeat(row, chair_number, 0) {}
 
 const string DisablePodiumSeat::location() const {
     string location;

@@ -19,7 +19,7 @@ using std::to_string;
 // ---------------------------------------------
 class NoPrice : public exception {
 
-    const char *what() const noexcept override; //TODO noexcept?
+    const char *what() const noexcept override;
 };
 
 // ---------------------------------------------
@@ -30,14 +30,11 @@ protected: //TODO protected or getters?
     int chair_number;
     int base_price;
 
-public: //TODO copy and =?
+public:
 
-    explicit Seat(int row, int chair_number, int base_price);
+    explicit Seat(int row, int chair_number, int base_price = 0);
 
-    explicit Seat(int row, int chair_number); //TODO is this the way another
-    // constructor just for green room??
-
-    virtual ~Seat() = default; //TODO default?
+    virtual ~Seat() = default;
 
     virtual const string location() const = 0;
 
@@ -67,7 +64,7 @@ public:
 
     explicit MainHallSeat(int row, int chair_number, int base_price);
 
-    virtual ~MainHallSeat() = default; //TODO virtual vs override for
+    ~MainHallSeat() override = default; //TODO virtual vs override for
     // destructors?
 
 };
@@ -79,7 +76,7 @@ public:
 
     explicit SpecialSeat(int row, int chair_number, int base_price);
 
-    virtual ~SpecialSeat() = default;
+    ~SpecialSeat() override = default;
 
 };
 
@@ -103,9 +100,7 @@ class DisablePodiumSeat : public SpecialSeat {
 
 public:
 
-    explicit DisablePodiumSeat(int row, int chair_number, int base_price);
-
-    explicit DisablePodiumSeat(int row, int chair_number); //TODO two cons.??
+    explicit DisablePodiumSeat(int row, int chair_number, int base_price = 200);
 
     ~DisablePodiumSeat() override = default;
 
@@ -124,7 +119,7 @@ public:
 
     explicit RegularSeat(char area, int row, int chair_number, int base_price);
 
-    virtual ~RegularSeat() = default;
+    ~RegularSeat() override = default;
 
 };
 
