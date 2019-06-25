@@ -1,7 +1,7 @@
 #include "seat.h"
 
 //this function is used for throwing an error if there is no price for a seat
-const char* NoPrice::what() const noexcept { //TODO noexcept?
+const char* NoPrice::what() const noexcept {
     return ("Not For Sale !");
 }
 

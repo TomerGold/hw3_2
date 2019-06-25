@@ -25,7 +25,7 @@ class NoPrice : public exception {
 // ---------------------------------------------
 class Seat {
 
-protected: //TODO protected or getters?
+protected:
     int row;
     int chair_number;
     int base_price;
@@ -64,8 +64,7 @@ public:
 
     explicit MainHallSeat(int row, int chair_number, int base_price);
 
-    ~MainHallSeat() override = default; //TODO virtual vs override for
-    // destructors?
+    ~MainHallSeat() override = default;
 
 };
 
